@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test:open": "npx playwright test --ui",
     "test:run": "npx playwright test",
+    "test:open": "npx playwright test --ui",
     "test:report": "npx playwright show-report",
     "prepare": "husky install"
   },
