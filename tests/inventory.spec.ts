@@ -95,9 +95,13 @@ test.describe('testes para o catálogo de produtos', () => {
     await expect(inventoryPage.inventoryItem).toHaveCount(6);
   });
 
-  test('deve exibir detalhes do produto ao clicar no título', async () => {
+  test('deve exibir detalhes do produto ao clicar no título', async ({
+    page,
+  }) => {
     await inventoryPage.backpackTitleLink.click();
     await expect(inventoryPage.page).toHaveURL(/inventory-item\.html/);
+
+    await page.waitForTimeout(1000); // Aguarda um curto período para garantir que a remoção seja processada
 
     await expect(productDetailPage.productTitle).toHaveText(
       'Sauce Labs Backpack',

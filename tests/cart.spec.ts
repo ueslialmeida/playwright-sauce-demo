@@ -11,11 +11,12 @@ test.describe('testes do carrinho de compras', () => {
     inventoryPage = new InventoryPage(page);
     cartPage = new CartPage(page);
     navigationComponent = new NavigationComponent(page);
+
+    // Acessa a página de inventário antes de cada teste
+    await page.goto('/inventory.html');
   });
 
   test('deve adicionar produtos ao carrinho', async ({ page }) => {
-    await page.goto('/inventory.html');
-
     // Adiciona um produto
     await inventoryPage.backpackAddToCartButton.click();
 
@@ -41,9 +42,6 @@ test.describe('testes do carrinho de compras', () => {
   });
 
   test('deve remover produtos do carrinho', async ({ page }) => {
-    // Acessa a página de inventário
-    await page.goto('/inventory.html');
-
     // Adiciona um item ao carrinho
     await inventoryPage.addToCartButton.first().click();
 
@@ -54,6 +52,7 @@ test.describe('testes do carrinho de compras', () => {
     await expect(page).toHaveURL('/cart.html');
 
     // Verifica se o item foi adicionado ao carrinho
+    await page.waitForTimeout(1000); // Aguarda um curto período para garantir que a remoção seja processada
     await expect(cartPage.inventoryItem).toBeVisible();
 
     // Remove o item do carrinho

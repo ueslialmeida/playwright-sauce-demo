@@ -42,6 +42,7 @@ test.describe('testes de checkout', () => {
     await expect(page).toHaveURL('/cart.html');
 
     // Verifica se o item foi adicionado ao carrinho
+    await page.waitForTimeout(1000); // Aguarda um curto período para garantir que a remoção seja processada
     await expect(cartPage.inventoryItem).toBeVisible();
 
     // Inicia o processo de checkout
