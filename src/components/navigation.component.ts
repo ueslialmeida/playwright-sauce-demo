@@ -12,6 +12,7 @@ export class NavigationComponent {
   readonly logoutLink: Locator;
   readonly resetAppStateLink: Locator;
   readonly cartButton: Locator;
+  readonly cartBadge: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -25,5 +26,6 @@ export class NavigationComponent {
     this.logoutLink = page.getByTestId('logout-sidebar-link');
     this.resetAppStateLink = page.locator('#reset_sidebar_link');
     this.cartButton = page.getByTestId('shopping-cart-link');
+    this.cartBadge = page.getByTestId('shopping-cart-badge');
   }
 }
