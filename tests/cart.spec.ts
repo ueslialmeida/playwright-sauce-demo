@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { InventoryPage, CartPage } from '@pages/index';
 import { NavigationComponent } from '@components/navigation.component';
 
-test.describe('testes de catálogo de produtos', () => {
+test.describe('testes do carrinho de compras', () => {
   let inventoryPage: InventoryPage;
   let cartPage: CartPage;
   let navigationComponent: NavigationComponent;

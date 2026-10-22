@@ -1,5 +1,5 @@
 import { test as setup, expect } from '@playwright/test';
-import { LoginPage } from '@pages/login.page';
+import { LoginPage } from '@pages/index';
 import { AUTH_FILE } from '../playwright.config';
 
 setup('autenticar usuário', async ({ page }) => {

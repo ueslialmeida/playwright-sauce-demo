@@ -6,7 +6,7 @@ export interface Client {
   postalCode: string;
 }
 
-export function createClient(overrides?: Partial<Client>): Client {
+export function generateClient(overrides?: Partial<Client>): Client {
   return {
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),

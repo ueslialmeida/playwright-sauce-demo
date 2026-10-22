@@ -7,7 +7,7 @@ import {
   CheckoutOverviewPage,
   CheckoutCompletePage,
 } from '@pages/index';
-import { createClient } from '@factories/client.factory';
+import { generateClient } from '@factories/client.factory';
 import fs from 'fs';
 
 test.describe('testes de checkout', () => {
@@ -48,7 +48,7 @@ test.describe('testes de checkout', () => {
     await cartPage.checkoutButton.click();
 
     // Preenche os dados de checkout com um cliente gerado por uma factory
-    const cliente = createClient();
+    const cliente = generateClient();
     await checkoutDataPage.fillCheckoutData(
       cliente.firstName,
       cliente.lastName,
